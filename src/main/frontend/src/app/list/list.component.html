@@ -1,0 +1,33 @@
+<div id="list">
+  <form id="form">
+    <div *ngIf="tasks.length === 0" id="empty">
+      There are no tasks to do right now!
+    </div>
+    <div *ngIf="tasks.length > 0">
+      <ul>
+        <li>
+          <div id="menu">
+            <p>Task nr. <div *ngIf="sortType == 'id'"><button class="sort" (click)="Sort('id')"><i class='fas'>&#xf107;</i></button></div>
+            <div *ngIf="sortType != 'id'"><button class="sort" (click)="Sort('id')"><i class='fas'>	&#xf106;</i></button></div>
+            <p>Task name: <div *ngIf="sortType == 'name'"><button class="sort" (click)="Sort('name')"><i class='fas'>&#xf107;</i></button></div>
+            <div *ngIf="sortType != 'name'"><button class="sort" (click)="Sort('name')"><i class='fas'>	&#xf106;</i></button></div>
+            <p>Task deadline: <div *ngIf="sortType == 'date'"><button class="sort" (click)="Sort('date')"><i class='fas'>&#xf107;</i></button></div>
+            <div *ngIf="sortType != 'date'"><button class="sort" (click)="Sort('date')"><i class='fas'>	&#xf106;</i></button></div>
+            <p>Task description: <div *ngIf="sortType == 'description'"><button class="sort" (click)="Sort('description')"><i class='fas'>&#xf107;</i></button></div>
+            <div *ngIf="sortType != 'description'"><button class="sort" (click)="Sort('description')"><i class='fas'>	&#xf106;</i></button></div>
+          </div>
+        </li>
+        <li *ngFor="let task of tasks">
+          <div class="task">
+            <p>{{task['id']}}</p>
+            <p>{{task['name']}}</p>
+            <p>{{task['deadline'] | date:'yyyy-MM-dd'}}</p>
+            <p>{{task['description']}}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <button id="redirect" (click)="Redirect()">Back</button>
+  </form>
+</div>

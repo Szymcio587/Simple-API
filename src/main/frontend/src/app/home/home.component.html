@@ -1,0 +1,10 @@
+<div id="home">
+  <div id="options">
+    <button class="button green" (click)="Redirect('add')">Add</button>
+    <button class="button blue" (click)="Redirect('update')">Update</button>
+    <button class="button red" (click)="Redirect('delete')">Delete</button>
+    <button class="button purple" (click)="Redirect('requests')">Show request number</button>
+    <button class="button golden" (click)="Redirect('list')">List Tasks</button>
+  </div>
+</div>
+<router-outlet></router-outlet>
